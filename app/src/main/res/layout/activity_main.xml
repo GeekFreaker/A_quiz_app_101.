@@ -181,6 +181,7 @@
 
             <LinearLayout
                 android:id="@+id/question_4"
+                android:text="@string/question_four"
                 style="@style/QuestionLayoutStyle">
 
                 <TextView
@@ -316,6 +317,12 @@
 
             <TextView
                 android:id="@+id/results"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:hint="@string/results_info"
+                android:background="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""

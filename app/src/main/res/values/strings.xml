@@ -1,15 +1,16 @@
 <resources>
     <string name="app_name">Quiz App</string>
-    <string name="q_and_a_round"> <b>Welcome to the Question and Answer Round</b> \n\n Please go ahead and answer
-    all these questions to the best of your ability
+    <string name="q_and_a_round"> <b>WELCOME TO THE QUESTION AND ANSWER QUIZ</b>
+    \n\n\n\n Please go ahead and answer all these questions to the best of your ability.
     \n\n
-        The aim here is to try and test your knowledge on <u>South African Politics</u>
+    The aim here is to try and test your knowledge on <u>South African Politics</u>
     \n\n\n\n
     Each question weighs <i>25 %</i> so take your time giving an answer.
     \n\n
     P.S Try to get 100% !!
     \n\n\n\n
-    Good luck!!</string>
+    Good luck :)
+    </string>
 
     <string name="answer_1">Submit All My Answers</string>
 
@@ -38,6 +39,7 @@
     <string name="missing_text">fill in your answer here</string>
     <string name="is_true">True</string>
     <string name="is_false">False</string>
+    <string name="results_info">...your results diplay here...</string>
 
 
 </resources>

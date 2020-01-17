@@ -101,14 +101,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void DisplayResult() {
-        int percentage =(TotalScore/5)*100;
+        int percentage = 0;
+        percentage = (TotalScore*100)/5;
         if(TotalScore > 4){
             Results.setTextColor(getResources().getColor(R.color.green));
-            result = getText(R.string.first_result).toString() + " : " + percentage+ "%";
-        }else if(TotalScore <= 3 && TotalScore!=0){
+            result = getText(R.string.first_result).toString() + " : " + percentage+ " %";
+        }else {
             Results.setTextColor(getResources().getColor(R.color.blue));
-            result= getText(R.string.second_result).toString() + " : " + percentage +"%";
-        }else if(TotalScore == 0){
+            result = getText(R.string.second_result).toString() + " : " + percentage + " %";
+        }
+        if(TotalScore==0){
             Results.setTextColor(getResources().getColor(R.color.red));
             result= getText(R.string.third_result).toString();
         }
