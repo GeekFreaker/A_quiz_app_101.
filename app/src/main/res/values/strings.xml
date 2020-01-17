@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="q_and_a_round"> <b>Welcome to the Question and Answer Round</b> \n\n Please go ahead and answer
+    all these questions to the best of your ability
+    \n\n
+        The aim here is to try and test your knowledge on <u>South African Politics</u>
+    \n\n\n\n
+    Each question weighs <i>25 %</i> so take your time giving an answer.
+    \n\n
+    P.S Try to get 100% !!
+    \n\n\n\n
+    Good luck!!</string>
+
+    <string name="answer_1">Submit All My Answers</string>
+
+    <string name="question_one">What is the name of the man who the book \"A Long Walk to Freedom\" is about ?</string>
+    <string name="label_one">Question One</string>
+    <string name="answer_one">Nelson Mandela</string>
+
+    <string name="question_two">Who wrote the South African book \" I write what I like \" ?</string>
+    <string name="label_two">Question Two</string>
+    <string name="answer_two">Steve Biko</string>
+
+    <string name="question_three">Please Enter the name of former President Thabo Mbeki\'s father below (capital on first name and surname)</string>
+    <string name="label_three">Question Three</string>
+    <string name="answer_three">Govan Mbeki</string>
+
+    <string name="question_four">Is Bessie Head a member of the African Writer\'s Series?</string>
+    <string name="label_four">Question Four</string>
+
+    <string name="question_five">Who is the leader of the Economic Freedom Fighters (EFF) in South Africa ?</string>
+    <string name="label_five">Question Five</string>
+    <string name="answer_five">Julius Malema</string>
+
+    <string name="first_result">You\'re on fire! Your total score is</string>
+    <string name="second_result">You can do better, try again. Your total score is</string>
+    <string name="third_result">You didn\'t perform well. Google is your friend, try again</string>
+    <string name="missing_text">fill in your answer here</string>
+    <string name="is_true">True</string>
+    <string name="is_false">False</string>
+
+
+</resources>
