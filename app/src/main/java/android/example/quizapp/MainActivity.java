@@ -9,21 +9,15 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
 
     /*---- Variable Declaration ----*/
-    public int Answer1=0;
-    public int Answer2=0;
-    public String Answer3="";
-    public int Answer4=0;
-    public int Answer5=0;
-
-    int TotalScore = 0;
+    int totalScore = 0;
 
     // result
-    TextView Results;
     String result = "";
 
     /*---- Component Declaration ----*/
@@ -31,31 +25,33 @@ public class MainActivity extends AppCompatActivity {
     Button getAnswers;
 
     //  Answers for Question 1
-    CheckBox Option1; // correct answer
-    CheckBox Option2;
-    CheckBox Option3;
-    CheckBox Option4;
+    CheckBox chkOption1; // correct answer
+    CheckBox chkOption2;
+    CheckBox chkOption3;
+    CheckBox chkOption4;
 
     //  Answers for Question 2
-    RadioButton Option5;
-    RadioButton Option6;
-    RadioButton Option7;
-    RadioButton Option8; //correct answer
+    RadioButton chkOption5;
+    RadioButton chkOption6;
+    RadioButton chkOption7;
+    RadioButton chkOption8; //correct answer
 
     //  Answers for Question 3
     EditText txtAnswer9; // check for govan mbeki
 
     //  Answers for Question 4
-    RadioButton Option10; // correct answer
-    RadioButton Option11;
+    RadioButton chkOption10; // correct answer
+    RadioButton chkOption11;
 
     //  Answers for Question 5
-    CheckBox Option12;
-    CheckBox Option13;
-    CheckBox Option14;
-    CheckBox Option15;
-    CheckBox Option16;
-    CheckBox Option17; // correct answer
+    CheckBox chkOption12;
+    CheckBox chkOption13;
+    CheckBox chkOption14;
+    CheckBox chkOption15;
+    CheckBox chkOption16;
+    CheckBox chkOption17; // correct answer
+
+    Toast resultsToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,60 +61,59 @@ public class MainActivity extends AppCompatActivity {
         // Instantiation of components.
         getAnswers = (Button) findViewById(R.id.answer);
 
-        Option1 = (CheckBox) findViewById(R.id.q1_option_a);
-        Option2 = (CheckBox) findViewById(R.id.q1_option_b);
-        Option3 = (CheckBox) findViewById(R.id.q1_option_c);
-        Option4 = (CheckBox) findViewById(R.id.q1_option_d);
+        chkOption1 = (CheckBox) findViewById(R.id.q1_option_a);
+        chkOption2 = (CheckBox) findViewById(R.id.q1_option_b);
+        chkOption3 = (CheckBox) findViewById(R.id.q1_option_c);
+        chkOption4 = (CheckBox) findViewById(R.id.q1_option_d);
 
-        Option5 = (RadioButton) findViewById(R.id.q2_option_a);
-        Option6 = (RadioButton) findViewById(R.id.q2_option_b);
-        Option7 = (RadioButton) findViewById(R.id.q2_option_c);
-        Option8 = (RadioButton) findViewById(R.id.q2_option_d);
+        chkOption5 = (RadioButton) findViewById(R.id.q2_option_a);
+        chkOption6 = (RadioButton) findViewById(R.id.q2_option_b);
+        chkOption7 = (RadioButton) findViewById(R.id.q2_option_c);
+        chkOption8 = (RadioButton) findViewById(R.id.q2_option_d);
 
         txtAnswer9 = (EditText) findViewById(R.id.text_answer_3);
 
-        Option10 = (RadioButton) findViewById(R.id.q4_option_a);
-        Option11 = (RadioButton) findViewById(R.id.q4_option_b);
+        chkOption10 = (RadioButton) findViewById(R.id.q4_option_a);
+        chkOption11 = (RadioButton) findViewById(R.id.q4_option_b);
 
-        Option12 = (CheckBox) findViewById(R.id.q5_option_a);
-        Option13 = (CheckBox) findViewById(R.id.q5_option_b);
-        Option14 = (CheckBox) findViewById(R.id.q5_option_c);
-        Option15 = (CheckBox) findViewById(R.id.q5_option_d);
-        Option16 = (CheckBox) findViewById(R.id.q5_option_e);
-        Option17 = (CheckBox) findViewById(R.id.q5_option_f);
-
-        Results = (TextView) findViewById(R.id.results);
+        chkOption12 = (CheckBox) findViewById(R.id.q5_option_a);
+        chkOption13 = (CheckBox) findViewById(R.id.q5_option_b);
+        chkOption14 = (CheckBox) findViewById(R.id.q5_option_c);
+        chkOption15 = (CheckBox) findViewById(R.id.q5_option_d);
+        chkOption16 = (CheckBox) findViewById(R.id.q5_option_e);
+        chkOption17 = (CheckBox) findViewById(R.id.q5_option_f);
     }
 
     public void SubmitAnswers(View view) {
-        TotalScore = 0;
-        TotalScore += SubmitAnswer1();
-        TotalScore += SubmitAnswer2();
-        TotalScore += SubmitAnswer3();
-        TotalScore += SubmitAnswer4();
-        TotalScore += SubmitAnswer5();
+        totalScore = 0;
+        totalScore += SubmitAnswer1();
+        totalScore += SubmitAnswer2();
+        totalScore += SubmitAnswer3();
+        totalScore += SubmitAnswer4();
+        totalScore += SubmitAnswer5();
         DisplayResult();
     }
 
     private void DisplayResult() {
         int percentage = 0;
-        percentage = (TotalScore*100)/5;
-        if(TotalScore > 4){
-            Results.setTextColor(getResources().getColor(R.color.green));
+        percentage = (totalScore *100)/5;
+        resultsToast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT);
+        
+        if(totalScore >= 4){
+            resultsToast.getView().setBackgroundColor(getResources().getColor(R.color.green));
             result = getText(R.string.first_result).toString() + " : " + percentage+ " %";
+        }else if(totalScore <=0){
+            resultsToast.getView().setBackgroundColor(getResources().getColor(R.color.red));
+            result= getText(R.string.third_result).toString();
         }else {
-            Results.setTextColor(getResources().getColor(R.color.blue));
+            resultsToast.getView().setBackgroundColor(getResources().getColor(R.color.blue));
             result = getText(R.string.second_result).toString() + " : " + percentage + " %";
         }
-        if(TotalScore==0){
-            Results.setTextColor(getResources().getColor(R.color.red));
-            result= getText(R.string.third_result).toString();
-        }
-        Results.setText(result);
+        resultsToast.show();
     }
 
     private int SubmitAnswer1() {
-        if(Option1.isChecked() && !Option2.isChecked() && !Option3.isChecked() && !Option4.isChecked()){
+        if(chkOption1.isChecked() && !chkOption2.isChecked() && !chkOption3.isChecked() && !chkOption4.isChecked()){
             return 1;
         }else{
             return 0;
@@ -126,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int SubmitAnswer2() {
-        if(Option8.isChecked()){
+        if(chkOption8.isChecked()){
             return 1;
         }else{
             return 0;
@@ -144,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int SubmitAnswer4() {
-        if(Option10.isChecked()){
+        if(chkOption10.isChecked()){
             return 1;
         }else{
             return 0;
@@ -152,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int SubmitAnswer5(){
-        if(Option17.isChecked() && !Option12.isChecked() && !Option13.isChecked() && !Option14.isChecked() && !Option15.isChecked() && !Option16.isChecked()){
+        if(chkOption17.isChecked() && !chkOption12.isChecked() && !chkOption13.isChecked() && !chkOption14.isChecked() && !chkOption15.isChecked() && !chkOption16.isChecked()){
             return 1;
         }else{
             return 0;
