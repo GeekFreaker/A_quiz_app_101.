@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         int percentage = 0;
         percentage = (totalScore *100)/5;
         resultsToast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT);
-        
+
         if(totalScore >= 4){
             resultsToast.getView().setBackgroundColor(getResources().getColor(R.color.green));
             result = getText(R.string.first_result).toString() + " : " + percentage+ " %";
